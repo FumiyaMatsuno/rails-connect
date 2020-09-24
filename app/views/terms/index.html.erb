@@ -1,0 +1,20 @@
+
+<%= render "shared/header" %>
+
+<h1>用語一覧</h1>
+
+<%= link_to "投稿する", new_term_path, class:"post" %>
+
+<% @terms.each do |term| %>
+  <div class="term">
+    <div class="term-genre">
+      <%= term.genre.name %>
+    </div>
+    <div class="term-title">
+      <%= term.title %>
+    </div>
+    <div class="term-text">
+    <%= raw Rinku.auto_link(h(term.text)) %>
+    </div>
+  </div>
+<% end %>
