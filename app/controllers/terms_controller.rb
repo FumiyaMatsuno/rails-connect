@@ -1,6 +1,6 @@
 class TermsController < ApplicationController
   before_action :genre_set
-
+  before_action :move_to_new, except: [:index, :create, :show, :search]
   def index
     @terms = Term.order("created_at DESC")
   end
@@ -18,18 +18,27 @@ class TermsController < ApplicationController
     end
   end
 
-  private
-
-  def term_params
-    params.require(:term).permit(:title,:text,:genre_id)
+  def show
+    @term = Term.find(params[:id])
   end
 
-  def term_show
-    @term = term.find(params[:id])
+
+  def genre
+    @terms = Term.genre(params[:id])
+  end
+
+  private
+  
+  def move_to_new
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
+  def term_params
+    params.require(:term).permit(:title,:reference,:text,:genre_id).merge(user_id: current_user.id)
   end
 
   def genre_set
-    @genre = Genre.all.where.not(id: 1)
+    @genres = Genre.all.where.not(id: 1)
   end
 
 
