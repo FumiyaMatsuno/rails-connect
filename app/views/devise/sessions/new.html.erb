@@ -1,0 +1,28 @@
+
+
+<%= render "shared/second-header"%>
+
+<%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
+<div class="single-container">
+  <main class="single-main-login">
+    <section class="login-panel">
+       
+      <div class="login-form-inner">
+        <%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
+          <div class="form-group-session">
+            <%= f.email_field :email, {autofocus: true, autocomplete: "email", placeholder: "mailaddres",class:'form-group__input'} %>
+          </div>
+          <div class="form-group-session">
+            <%= f.password_field :password,{autocomplete: "current-password",placeholder: "password",class:'form-group__input',id:"password"} %>
+          </div>
+          <div class="form-group-session">
+            <%= f.submit 'ログイン', class: "btn-default btn-red", url: "root_path" %>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </main>
+</div>
+<% end %>
+
+<%= render "shared/second-footer"%>
