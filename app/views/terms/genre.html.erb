@@ -1,0 +1,38 @@
+
+<%= render "shared/header" , locals: { genres: @genres }%>
+  <div class ="main-container">
+    <div class ="left-container">
+      <h1 class="left-top">ジャンル</h1>
+      <% @genres.each do |genre|%>
+        <li class="nav-term active" >
+          <%= link_to "#{genre.name}" ,genre_term_path(genre.id), class: "nav-term" %>
+        </li>
+      <%end%>
+    </div>
+
+    <div class ="right-container">
+          <p class="theme">用語一覧</p>
+      <% @terms.each do |term| %>
+        <div class="term-container scroll attach">
+            <div class="term-genre">
+              <%= term.genre.name %>
+            </div>
+          <%= link_to term_path(term.id),  method: :get do %>
+            <div class="term-title">
+              <%= term.title %>
+            </div>
+          <% end %>
+            <div class="term-title">
+              <%= term.reference %>
+            </div>
+            <div class="term-text">
+              <%= raw Rinku.auto_link(h(term.text)) %>
+            </div>
+        </div>
+      <% end %>
+      <% if @terms.blank?%>
+      <div class="s-error"><h2>ジャンルに当てはまる候補はありません</h2></div>
+      <%end%>
+    </div>
+  </div>
+<%= render "shared/footer" %>
