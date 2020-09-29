@@ -1,37 +1,49 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
-<header class='top-page-header'>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Rails 初学者向け検索サイト</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item-genre active">
-        <div class="nav-link" id="lists">ジャンル <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-
-      <ul class="show-lists hidden" id="pull-down">
-        <% @genre.each do |genre|%>
-        <li class="nav-item active" >
-        <%= link_to "#{genre.name}" ,terms_index_path(genre.id), class: "nav-item" %>
-        </li>
-        <%end%>
-      </ul>
-
+<div class="container-fluid navbar-dark bg-dark">
+  <div class="row">
+    <div class="col-xs-12">
+      <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#!">Rails 初学者向け検索サイト</a>
+      </nav>
+    </div>
   </div>
-</nav>
-</header>
+</div>
+<div class="container-fluid navbar-dark bg-dark">
+  <div class="row">
+    <div class="col-xs-12">
+      <header class='top-page-header'>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="navbar menu-header">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-term-genre active">
+                <div class="nav-link " id="lists">ジャンル <span class="sr-only">(current)</span></a>
+              </li>
+              <% if user_signed_in?%>
+                <li><%= link_to current_user.nickname, "#", class: "nav-link" %></li>
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link logout" %></li>
+              <% else %>
+                <li><%= link_to 'ログイン', new_user_session_path, class: "nav-link login" %></li>
+                <li><%= link_to '新規登録', new_user_registration_path, class: "nav-link sign-up" %></li>
+              <% end %>
+            </ul>
+    
+            <form class="form-inline my-2 my-lg-0 form-sheach">
+              <input class="form-control mr-sm-2" type="text" placeholder="用語検索" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+            </form>
+
+            <ul class="show-lists hidden" id="pull-down">
+              <% @genres.each do |genre|%>
+                <li class="nav-term active" >
+                  <%= link_to "#{genre.name}" ,genre_term_path(genre.id), class: "nav-term" %>
+                </li>
+              <%end%>
+            </ul>
+          </div>
+        </nav>
+      </header>
+    </div>
+  </div>
+</div>
+
+

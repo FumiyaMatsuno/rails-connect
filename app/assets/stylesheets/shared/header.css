@@ -1,5 +1,7 @@
+
 h1{
   text-align: center;
+  color: white;
 }
 
 .post{
@@ -42,14 +44,23 @@ h1{
 }
 
 .show-lists{
-  width: 200px;
-  position: absolute;
-  right: 800px;
-  top: 70px;
-  background-color: #ffffff;
+  width: 150px;
+  background: #3ccace;
+  text-align: center;
+  border-radius: 4%;
+  top: 130px;
+  left: 32px;
+  position: fixed;
+  padding: 10px;
+  background-color: #FFFFFF;
+  list-style: none;
 }
 
 .nav-item-genre{
-  background-color: #FF6666 ;
-  color: white;
+  background-color:  ;
+  color: ;
+}
+
+.row {
+  justify-content: space-between;
 }

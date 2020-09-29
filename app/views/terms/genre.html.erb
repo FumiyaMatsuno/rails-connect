@@ -1,37 +1,38 @@
-<%= render "shared/header" , locals: { categories: @categories }%>
-<div class='main'>
-  <div class='s-item-contents'>
-    <ul class='s-item-lists'>
-      <% @items.each do |item| %>
-        <li class='s-list'>
-           <%= link_to item_path(item.id) do %>
-            <div class='s-item-img-content'>
-              <%= image_tag item.image, class: "s-item-img" %>
-                <% if item.sold? %>
-                 <div class='s-sold-out'>
-                   <span>Sold Out!!</span>
-                 </div>
-                <% end %>
+
+<%= render "shared/header" , locals: { genres: @genres }%>
+  <div class ="main-container">
+    <div class ="left-container">
+      <h1 class="left-top">ジャンル</h1>
+      <% @genres.each do |genre|%>
+        <li class="nav-term active" >
+          <%= link_to "#{genre.name}" ,genre_term_path(genre.id), class: "nav-term" %>
+        </li>
+      <%end%>
+    </div>
+
+    <div class ="right-container">
+          <p class="theme">用語一覧</p>
+      <% @terms.each do |term| %>
+        <div class="term-container scroll attach">
+            <div class="term-genre">
+              <%= term.genre.name %>
             </div>
-            <div class='s-item-info'>
-                <h3 class='s-item-name'>
-                 <%= item.name %>
-                </h3>
-            <div class='s-item-price'>
-                 <span><%= item.price %>円<br>(税込み)</span>
-            <div class='s-star-btn'>
-              <%= image_tag "star.png", class:"s-star-icon" %>
-              <span class='s-star-count'>0</span>
+          <%= link_to term_path(term.id),  method: :get do %>
+            <div class="term-title">
+              <%= term.title %>
             </div>
-          </div>
+          <% end %>
+            <div class="term-title">
+              <%= term.reference %>
+            </div>
+            <div class="term-text">
+              <%= raw Rinku.auto_link(h(term.text)) %>
+            </div>
         </div>
-        <% end %>
       <% end %>
-      </li>
+      <% if @terms.blank?%>
+      <div class="s-error"><h2>ジャンルに当てはまる候補はありません</h2></div>
+      <%end%>
+    </div>
   </div>
-</div>
-</div>
-      <% if @items.blank?%>
-        <div class="s-error"><h2>カテゴリーに当てはまる商品はありません</h2><div>
-    <%end%>
 <%= render "shared/footer" %>

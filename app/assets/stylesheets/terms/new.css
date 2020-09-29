@@ -1,4 +1,4 @@
-.term-box {
+.term-post {
   height:800px;
   background-color: lightgray;
   display: flex;
@@ -8,6 +8,12 @@
 }
 
 .title {
+  height: 30px;
+  width: 300px;
+  margin: 20px;
+}
+
+.reference {
   height: 30px;
   width: 300px;
   margin: 20px;

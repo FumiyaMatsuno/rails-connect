@@ -1,20 +1,42 @@
 
-<%= render "shared/header" %>
+<%= render "shared/header", locals: { genres: @genres }%>
 
-<h1>用語一覧</h1>
 
-<%= link_to "投稿する", new_term_path, class:"post" %>
-
-<% @terms.each do |term| %>
-  <div class="term">
-    <div class="term-genre">
-      <%= term.genre.name %>
-    </div>
-    <div class="term-title">
-      <%= term.title %>
-    </div>
-    <div class="term-text">
-    <%= raw Rinku.auto_link(h(term.text)) %>
-    </div>
+<div class ="main-container">
+  <div class ="left-container">
+    <h1 class="left-top">ジャンル</h1>
+    <% @genres.each do |genre|%>
+      <li class="nav-term active" >
+        <%= link_to "#{genre.name}" ,genre_term_path(genre.id), class: "nav-term" %>
+      </li>
+    <%end%>
   </div>
-<% end %>
+
+  <div class ="right-container">
+        <p class="theme">用語一覧</p>
+    <% @terms.each do |term| %>
+      <div class="term-container scroll attach">
+          <div class="term-genre">
+            <%= term.genre.name %>
+          </div>
+        <%= link_to term_path(term.id),  method: :get do %>
+          <div class="term-title">
+            <%= term.title %>
+          </div>
+        <% end %>
+          <div class="term-title">
+            <%= term.reference %>
+          </div>
+          <div class="term-text">
+            <%= raw Rinku.auto_link(h(term.text)) %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to new_term_path do %>
+    <button type="button" class="btn-sf-like">投稿する</button>
+  <% end %>
+  
+</div>
+<%= render "shared/footer" %>
