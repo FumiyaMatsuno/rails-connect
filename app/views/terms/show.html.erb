@@ -39,8 +39,8 @@
       </div>
     </div>
     <% if user_signed_in? && current_user.id == @term.user_id %>
-    <%= link_to '用語の編集', edit_term_path(@term.id), method: :get, class: "term-red-btn" %>
-    <%= link_to '削除', term_path(@term.id), method: :delete, class:'term-destroy' %>
+    　<%= link_to '用語の編集', edit_term_path(@term.id), method: :get, class: "term-red-btn" %>
+  　  <%= link_to '削除', term_path(@term.id), method: :delete, class:'term-destroy' %>
     <% end %>
   <a href="#" class='another-term'><%= "用語のジャンル" %>をもっと見る</a>
   </div>
