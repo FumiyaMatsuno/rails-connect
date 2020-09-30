@@ -32,19 +32,23 @@
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
+<div class="term-show-bottom">
+  <div class="term-bottom">
+    <% if user_signed_in? && current_user.id == @term.user_id %>
+    <%= link_to '用語の編集', edit_term_path(@term.id), method: :get, class: "btn-flat-border-edit" %>
+    <%= link_to '削除', term_path(@term.id), method: :delete, class:'btn-flat-border-destroy' %>
+    <% end %>
     <div class="option">
       <div class="favorite-btn">
         <%= image_tag "sozai_cman_jp_20200928143103.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
+        <span>いいね 0</span>
       </div>
     </div>
-    <% if user_signed_in? && current_user.id == @term.user_id %>
-    <%= link_to '用語の編集', edit_term_path(@term.id), method: :get, class: "term-red-btn" %>
-    <%= link_to '削除', term_path(@term.id), method: :delete, class:'term-destroy' %>
-    <% end %>
-  <a href="#" class='another-term'><%= "用語のジャンル" %>をもっと見る</a>
-  </div>
-  
+  </div> 
 </div>
-
+<div class="bottom-toppage">
+<%= link_to 'トップページへ戻る', root_path, method: :get, class:'another-term' %>
+</div>
 <%= render "shared/footer" %>
