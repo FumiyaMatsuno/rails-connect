@@ -3,7 +3,7 @@
   <div class="term-post">
     用語を投稿する
     <%= f.text_field :title, class:"title", placeholder:"タイトル" %>
-    <%= f.text_field :reference, class:"title", placeholder:"引用元記述" %>
+    <%= f.text_area :reference, class:"text", placeholder:"引用元記述" %>
     <%= f.text_area :text, class:"text", placeholder:"URLのみ記述" %>
     <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
     <%= f.submit "投稿する" ,class:"btn" %>

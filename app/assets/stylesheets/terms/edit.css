@@ -1,6 +1,5 @@
 .term-post {
   height:800px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +8,7 @@
 
 .title {
   height: 30px;
-  width: 500px;
+  width: 300px;
   margin: 20px;
 }
 
