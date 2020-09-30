@@ -18,16 +18,29 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5vh 0;
+}
+
+.term-show-bottom {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .term-box {
-
   width: 70vw;
   min-width: 1200px;
-  padding: 10vh 15vw 2vh 15vw;
+  padding: 10vh 15vw 0vh 15vw;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.term-bottom {
+  width: 90vw;
+  min-width: 1200px;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -67,32 +80,47 @@ body {
 }
 
 
-.term-red-btn {
-  text-align: center;
-  background-color: #ea352d;
-  font-size: 24px;
-  font-weight: bold;
-  color: #FFF;
-  margin: 20px 0px;
+.btn-flat-border-edit {
+  margin: 20px 5px;
   padding: 2vh 10vw;
+  display: inline-block;
+  padding: 0.8em 1.2em;
+  text-decoration: none;
+  color: red;
+  border: solid 2px red;
+  border-radius: 3px;
+  transition: .4s;
+
+}
+
+.btn-flat-border-edit:hover {
+  background: red;
+  color: white;
 }
 
 .or-text {
   font-size: 20px;
 }
 
-.term-destroy {
-  background-color: lightgray;
-  text-align: center;
-  font-size: 24px;
-  color: black;
-  margin: 20px 0px;
+.btn-flat-border-destroy {
+  margin: 20px 5px;
   padding: 2vh 10vw;
+  display: inline-block;
+  padding: 0.8em 1.2em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
 }
 
+.btn-flat-border-destroy:hover {
+  background: #67c5ff;
+  color: white;
+}
 
 .detail-table {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   width: 100%;
 }
 
@@ -136,11 +164,28 @@ body {
 
 .another-term {
   display: block;
-  margin: 30px 0px 8px;
-  color: #3CCACE;
-  text-decoration: none;
+  margin: 40px 0 80px;
+  min-width: 200px;
+  position: relative;
   font-weight: bold;
-  font-size: 23px;
+  text-decoration: none;
+  color: #FFF;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.73);
+  padding: 0.7em 2em;
+  background: #00bcd4;
+  border-top: solid 3px #00a3d4;
+  border-bottom: solid 3px #00a3d4;
+  transition: .4s;
+  font-size: 18px;
 }
 
+.another-term:hover {
+  text-shadow: -6px 0px 15px rgba(255, 255, 240, 0.83),
+               6px 0px 15px rgba(255, 255, 240, 0.83);
+}
 
+.bottom-toppage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

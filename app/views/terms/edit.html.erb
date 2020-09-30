@@ -1,0 +1,15 @@
+<%= form_with model: @term, url:term_path(@term.id), method: :patch, local: true do |f| %>
+<%= render 'shared/error_messages', model: f.object %>
+  <div class="term-post">
+    用語を投稿する
+    <%= f.text_field :title, class:"title", placeholder:"タイトル" %>
+    <%= f.text_area :reference, class:"text", placeholder:"引用元記述" %>
+    <%= f.text_area :text, class:"text", placeholder:"URLのみ記述" %>
+    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
+    <%= f.submit "投稿する" ,class:"btn" %>
+  </div>
+  <div class="sell-btn-contents">
+      <%= f.submit "変更する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', term_path(@term.id), class:"back-btn" %>
+    </div>
+<% end %>

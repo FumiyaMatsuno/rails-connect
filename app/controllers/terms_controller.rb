@@ -1,7 +1,7 @@
 class TermsController < ApplicationController
   before_action :genre_set
   before_action :move_to_new, except: [:index, :create, :show, :search]
-  before_action :set_term , only: [:show, :destroy]
+  before_action :set_term , only: [:show, :destroy, :edit, :update]
 
   def index
     @terms = Term.order("created_at DESC")
@@ -23,6 +23,17 @@ class TermsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @term.update(term_params)
+      redirect_to root_path
+    else
+      redirect_to action: :edit
+    end
+  end
+
   def destroy
     if @term.destroy
       redirect_to terms_path
@@ -30,7 +41,6 @@ class TermsController < ApplicationController
       redirect_to action: :show
     end
   end
-
 
   def genre
     @terms = Term.genre(params[:id])

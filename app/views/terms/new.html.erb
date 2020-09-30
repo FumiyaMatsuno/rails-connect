@@ -1,6 +1,6 @@
 <%= form_with model: @term, url:terms_path, local: true do |f| %>
   <div class="term-post">
-    記事を投稿する
+    用語を投稿する
     <%= f.text_field :title, class:"title", placeholder:"タイトル" %>
     <%= f.text_field :reference, class:"title", placeholder:"引用元記述" %>
     <%= f.text_area :text, class:"text", placeholder:"URLのみ記述" %>
