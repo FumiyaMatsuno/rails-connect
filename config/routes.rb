@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'terms#index'
   resources :terms do
     member do
-     get 'genre'
+      get 'genre'
     end
   end
 end

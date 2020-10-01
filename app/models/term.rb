@@ -2,6 +2,8 @@ class Term < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
   belongs_to :user
+  has_many :term_tag_relations
+  has_many :tags, through: :term_tag_relationgs
 
   validates :title, :text, :genre, presence: true
   validates :genre_id, numericality: { other_than: 1 }
