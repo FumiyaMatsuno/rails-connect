@@ -2,8 +2,6 @@ class Term < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
   belongs_to :user
-  has_many :term_tag_relations
-  has_many :tags, through: :term_tag_relationgs
 
   validates :title, :text, :genre, presence: true
   validates :genre_id, numericality: { other_than: 1 }
@@ -11,6 +9,15 @@ class Term < ApplicationRecord
   def self.genre(genre)
     if 1 < genre.to_i && genre.to_i < 13
       Term.where('genre_id LIKE(?)', "%#{genre}%")
+    else
+      Term.all
+    end
+  end
+
+  def self.research(research)
+    if research != ""
+      Term.where('title LIKE(?)', "%#{research}%")
+      Term.where('reference LIKE(?)', "%#{research}%")
     else
       Term.all
     end

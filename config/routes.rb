@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :terms do
     member do
       get 'genre'
+      get 'search'
+    end
+    collection do
+      get 'research'
     end
   end
 end
