@@ -1,7 +1,8 @@
-
-h1{
-  text-align: center;
+.rails-name {
+  padding: 1em 1em;
   color: white;
+  background: transparent;
+  border-left: solid 5px #7db4e6;
 }
 
 .post{
@@ -48,19 +49,69 @@ h1{
   background: #3ccace;
   text-align: center;
   border-radius: 4%;
-  top: 130px;
-  left: 32px;
+  top: 80px;
+  left: 450px;
   position: fixed;
   padding: 10px;
-  background-color: #FFFFFF;
+  background-color: #343a40;
   list-style: none;
 }
 
-.nav-item-genre{
-  background-color:  ;
-  color: ;
+
+
+.search-form{
+display: flex;
+margin-right: 20px;
 }
 
-.row {
-  justify-content: space-between;
+.search-input {
+  background: #ccddf5;
+  border: none;
+  height: 40px;
+  width: 270px;
+}
+
+.search-button {
+  cursor: pointer;
+  border: none;
+  background: #3879D9;
+  color: #fff;
+  outline : none;
+  width: 70px;
+}
+.search-form ::-webkit-input-placeholder {
+  color: #3879D9;
+}
+
+ul.topnav {
+	overflow: hidden;
+	margin: 0;
+	padding: 10px 5px;
+	list-style-type: none;
+	background-color: #343a40;
+}
+ul.topnav li {
+	float: left;
+}
+ul.topnav li a {
+	display: block;
+	padding: 14px 16px;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+}
+ul.topnav li a:hover:not(.active) {
+	background-color: #a9bce2;
+}
+ul.topnav li a.active {
+	background-color: #da3c41;
+}
+ul.topnav li.right {
+  float: right;
+  
+}
+@media screen and (max-width: 480px) {
+	ul.topnav li.right, ul.topnav li {
+		float: none;
+	}
 }

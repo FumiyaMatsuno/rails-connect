@@ -84,3 +84,81 @@ body {
   border-left: solid 5px #7db4e6;
   border-bottom: solid 3px #d7d7d7;
 }
+
+.detail-table {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.detail-value-title {
+  background-color: lightblue;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dedede;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.detail-term-category {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value-category {
+  background-color: #eee;
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
+
+.detail-term-reference {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value-reference {
+  background-color: #eee;
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
+
+.detail-term-tag {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value-tag {
+  background-color: #eee;
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
+.detail-term-url {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value-url {
+  background-color: #eee;
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}

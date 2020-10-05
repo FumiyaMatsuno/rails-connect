@@ -1,5 +1,5 @@
 
-<%= render "shared/header", locals: {term: @term} %>
+<%= render "shared/header", locals: {research: @research} %>
 
 
 <div class ="main-container">
@@ -45,6 +45,12 @@
         </table>
       </div>
     <% end %>
+    <% if @terms.blank?%>
+      <div class="s-error"><h2>検索に当てはまる候補はありません</h2></div>
+    <%end%>
+    <div class="bottom-toppage">
+      <%= link_to 'トップページへ戻る', root_path, method: :get, class:'genre-another-term' %>
+    </div>
   </div>
 
   <%= link_to new_term_path do %>

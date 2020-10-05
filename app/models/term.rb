@@ -13,4 +13,13 @@ class Term < ApplicationRecord
       Term.all
     end
   end
+
+  def self.research(research)
+    if research != ""
+      Term.where('title LIKE(?)', "%#{research}%")
+      Term.where('reference LIKE(?)', "%#{research}%")
+    else
+      Term.all
+    end
+  end
 end

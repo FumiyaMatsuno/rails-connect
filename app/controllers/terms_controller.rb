@@ -21,6 +21,7 @@ class TermsController < ApplicationController
   end
 
   def show
+    @terms = Term.find(params[:id])
   end
 
   def edit
@@ -44,6 +45,10 @@ class TermsController < ApplicationController
 
   def genre
     @terms = Term.genre(params[:id])
+  end
+
+  def research
+    @terms = Term.research(params[:keyword])
   end
 
   private
