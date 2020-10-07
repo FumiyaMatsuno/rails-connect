@@ -5,11 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :terms, foreign_key: :user_id, dependent: :destroy
-
+  has_many :likes
+  
   def self.guest
     find_or_create_by!(nickname: 'ゲスト', email: 'guest@example.com') do |user|
       user.password = 'ccc111'
     end
+  end
+
+  def liked_by?(term_id)
+    likes.where(term_id: term_id).exists?
   end
 
 end

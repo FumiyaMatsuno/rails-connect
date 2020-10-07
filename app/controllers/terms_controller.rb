@@ -2,6 +2,7 @@ class TermsController < ApplicationController
   before_action :genre_set
   before_action :move_to_new, except: [:index, :create, :show, :search]
   before_action :set_term , only: [:show, :destroy, :edit, :update]
+  
 
   def index
     @terms = Term.order("created_at DESC")
