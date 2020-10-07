@@ -2,6 +2,7 @@ class Term < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
   belongs_to :user
+  has_many :likes
 
   validates :title, :text, :genre, presence: true
   validates :genre_id, numericality: { other_than: 1 }
@@ -22,4 +23,5 @@ class Term < ApplicationRecord
       Term.all
     end
   end
+
 end
