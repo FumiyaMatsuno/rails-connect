@@ -38,6 +38,10 @@
               <td class="detail-value-reference"><%= term.reference %></td>
             </tr>
             <tr>
+              <th class="detail-term-like">いいね数</th>
+              <td class="detail-value-like"><div id="term_<%= term.id %>"<%= render 'term', term: term %></div></td>
+            </tr>
+            <tr>
               <th class="detail-term-url">URL</th>
               <td class="detail-value-url"><%= raw Rinku.auto_link(h(term.text)) %></td>
             </tr>

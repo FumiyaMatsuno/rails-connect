@@ -1,3 +1,5 @@
+<%= render "shared/header", locals: {term: @term} %>
+
 <div class="term-show">
   <div class="term-box">
     <h2 class="name">
@@ -6,6 +8,7 @@
 
     <table class="detail-table">
       <tbody>
+
         <tr>
           <th class="detail-term">投稿者ニックネーム</th>
           <td class="detail-value"><%= @term.user.nickname %></td>
@@ -13,6 +16,10 @@
         <tr>
           <th class="detail-term">ジャンル</th>
           <td class="detail-value"><%= @term.genre.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-term">いいね数</th>
+          <td class="detail-value"><div id="term_<%= @term.id %>"<%= render 'term', term: @term %></div></td>
         </tr>
         <tr>
           <th class="detail-term">用語キーワード</th>
@@ -40,15 +47,11 @@
     <%= link_to '用語の編集', edit_term_path(@term.id), method: :get, class: "btn-flat-border-edit" %>
     <%= link_to '削除', term_path(@term.id), method: :delete, class:'btn-flat-border-destroy' %>
     <% end %>
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "sozai_cman_jp_20200928143103.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>いいね 0</span>
-      </div>
-    </div>
+
   </div> 
 </div>
 <div class="bottom-toppage">
 <%= link_to 'トップページへ戻る', root_path, method: :get, class:'another-term' %>
 </div>
+
 <%= render "shared/footer" %>

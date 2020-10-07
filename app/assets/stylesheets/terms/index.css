@@ -131,6 +131,21 @@ body {
   border: 1px solid #dedede;
   font-size: 14px;
 }
+.detail-term-like {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value-like {
+  background-color: #eee;
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
 
 .detail-term-tag {
   width: 20%;

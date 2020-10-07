@@ -10,7 +10,7 @@
     <%= f.text_area :text, class:"text", placeholder:"URLのみ記述" %>
     <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
       <%= f.submit "編集する" ,class:"edit-btn-edit" %>
-      <%=link_to 'もどる', term_path(@term.id), class:"back-btnedit" %>
+      <%=link_to 'もどる', term_path(@term.id), class:"back-btn-edit" %>
     </div>
 <% end %>
 </div>
