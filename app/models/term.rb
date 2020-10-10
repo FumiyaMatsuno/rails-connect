@@ -2,7 +2,8 @@ class Term < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
   belongs_to :user
-  has_many :likes
+  has_many :likes, dependent: :destroy
+  has_many :users, through: :likes
 
   validates :title, :text, :genre, presence: true
   validates :genre_id, numericality: { other_than: 1 }

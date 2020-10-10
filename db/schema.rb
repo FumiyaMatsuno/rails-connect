@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_05_092324) do
+ActiveRecord::Schema.define(version: 2020_10_10_090520) do
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "term_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "term_id"
+    t.index ["term_id"], name: "index_likes_on_term_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "terms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -43,5 +45,7 @@ ActiveRecord::Schema.define(version: 2020_10_05_092324) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "likes", "terms"
+  add_foreign_key "likes", "users"
   add_foreign_key "terms", "users"
 end

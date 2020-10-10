@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :terms, foreign_key: :user_id, dependent: :destroy
-  has_many :likes
+  has_many :likes, dependent: :destroy
+  has_many :terms, through: :likes
   
   def self.guest
     find_or_create_by!(nickname: 'ゲスト', email: 'guest@example.com') do |user|
