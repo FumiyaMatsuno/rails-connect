@@ -56,6 +56,6 @@ production:
   encoding: utf8
   database: app_production
   pool: 5
-  user: root
+  username: root
   password: x0227354809
   host: localhost
