@@ -1,5 +1,5 @@
 body {
-  background-image: url('/images/3888153_m.png');
+  background-image: url('../../images/3888153_m.png');
   height: 100vh;
   background-size: cover;
 }
@@ -70,7 +70,7 @@ body {
   flex-direction: column;
 }
 
-.iterm-price-box>.term-price {
+.term-price-box>.term-price {
   font-size: 4vh;
   font-weight: bold;
 }
@@ -184,7 +184,7 @@ body {
                6px 0px 15px rgba(255, 255, 240, 0.83);
 }
 
-.bottom-toppage {
+.bottom-top-page {
   display: flex;
   justify-content: center;
   align-items: center;
