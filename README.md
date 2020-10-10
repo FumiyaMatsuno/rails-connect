@@ -99,11 +99,9 @@
 ## 追加実装予定
 
 1. AWS
-2. Docker
-3. CircleCI
-4. タグ付機能
-5. フォロー機能
 
+
+---
 # :page_facing_up: DB設計
 
 ## ER図
@@ -142,13 +140,15 @@
 * belongs_to :user
 * belongs_to :term
 
-
+---
 ## その他
+---
 
 その他
 
-
+---
 ## 作者
+---
 
 [Fumiya Matsuno]()
 mail to: xfmakma@gmail.com
