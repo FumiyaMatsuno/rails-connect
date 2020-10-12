@@ -102,7 +102,7 @@
 2. MySQL
 3. puma
 4. Javascript
-5. Ruby 2.6.6, Rails 6.0.3.2
+5. Ruby 2.6.5, Rails 6.0.3.3
 6. Mac Catalina(10.15.6)
 7. Amazon Linux
 8. VSCode, Vim
@@ -121,7 +121,7 @@
 ## ER図
 ![er](https://i.gyazo.com/94939feb0bebbf9f2aa62d55a7ca4e97.png)
 
-## user
+## userテーブル
 |種類        | Column     | Type       | Options      |追記           |
 |-----------|------------|-------------|--------------|--------------|
 |ニックネーム|nickname|string|null: false||
@@ -131,8 +131,9 @@
 * has_many :terms, foreign_key: :user_id, dependent: :destroy
 * has_many :likes
 
+<br>
 
-## term
+## termテーブル
 |種類        | Column     | Type       | Options      |追記           |
 |-----------|------------|-------------|--------------|--------------|
 |用語|title|string|null: false||
@@ -145,7 +146,9 @@
 * belongs_to :user
 * has_many :likes
 
-## like
+<br>
+
+## likeテーブル
 |種類        | Column     | Type       | Options      |追記           |
 |-----------|------------|-------------|--------------|--------------|
 |ユーザーID|user_id|integer|||
@@ -154,11 +157,7 @@
 * belongs_to :user
 * belongs_to :term
 
----
-## その他
----
-
-その他
+<br>
 
 ---
 ## 作者
