@@ -18,8 +18,12 @@ class Term < ApplicationRecord
 
   def self.research(research)
     if research != ""
-      Term.where('title LIKE(?)', "%#{research}%")
-      Term.where('reference LIKE(?)', "%#{research}%")
+      term = Term.where('title LIKE(?)', "%#{research}%")
+      if term.present?
+        Term.where('title LIKE(?)', "%#{research}%")
+      else
+        Term.where('reference LIKE(?)', "%#{research}%")
+      end
     else
       Term.all
     end
