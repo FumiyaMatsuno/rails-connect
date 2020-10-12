@@ -33,8 +33,10 @@
 
 
 ## サイトURL紹介
+AWS
+- アドレス:http://54.95.37.191:3000/
+Heroku
 - アドレス:https://rails-connect-app.herokuapp.com/
-
 
 ## テスト用アカウント
 1.マスター用
@@ -91,14 +93,23 @@
 
 
 
-## デプロイ
+## 使用技術
 
-1. Heroku
-
+1. AWS/本番環境（EC2, RDS, VPC, EIP, IAM）
+2. MySQL
+3. puma
+4. Javascript
+5. Ruby 2.6.6, Rails 6.0.3.2
+6. Mac Catalina(10.15.6)
+7. Amazon Linux
+8. VSCode, Vim
 
 ## 追加実装予定
 
-1. AWS
+1. AWS/本番環境（Route53, S3）
+2. Docker,Docker-compose（開発環境）
+3. RSpec（テストフレームワーク）
+4. CircleCi（テスト・デプロイ）
 
 
 ---
