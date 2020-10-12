@@ -33,9 +33,12 @@
 
 
 ## サイトURL紹介
-AWS
+デプロイ:AWS
 - アドレス:http://54.95.37.191:3000/
-Heroku
+
+
+デプロイ:Heroku
+
 - アドレス:https://rails-connect-app.herokuapp.com/
 
 ## テスト用アカウント
