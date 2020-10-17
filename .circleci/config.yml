@@ -21,7 +21,7 @@ jobs:
             cd /var/www/rails &&
             git pull &&
             rm ./log/production.log &&
-            bundle install --without test development &&
+            bin/bundle install --without test development &&
             bin/bundle exec rails assets:precompile RAILS_ENV=production &&
             bin/yarn &&
             bin/webpack &&
