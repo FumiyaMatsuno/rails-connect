@@ -1,0 +1,43 @@
+version: 2.1
+jobs:
+  # buildジョブ: CircleCI上でDockerコンテナを作成してテスト
+  build:
+    docker:
+      - image: alpine
+    steps:
+      - checkout
+      - run:
+          name: Echo Test
+          command: echo "CircleCI Test"
+  # deployジョブ: EC2にSSH接続して、git pull
+  deploy:
+    machine:
+      image: circleci/classic:edge
+    steps:
+      - checkout
+      - add_ssh_keys:
+      - run: >-
+          ssh ${USER_NAME}@${HOST_NAME} '
+            cd /var/www/rails &&
+            git pull &&
+            rm ./log/production.log &&
+            bundle install --without test development &&
+            bin/bundle exec rails assets:precompile RAILS_ENV=production &&
+            bin/yarn &&
+            bin/webpack &&
+            bin/rails db:migrate RAILS_ENV=production &&
+            sudo systemctl restart puma.service
+          '
+workflows:
+  version: 2.1
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            # deployジョブより先にbuildジョブを実行
+            - build
+          # masterブランチにpushされた場合のみdeployジョブを実行
+          filters:
+            branches:
+              only: master
