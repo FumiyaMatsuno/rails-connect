@@ -19,12 +19,14 @@
 <a><img src="https://cdn.svgporn.com/logos/html-5.svg" height="60px;" /></a> <!-- htmlのロゴ -->
 <a><img src="https://cdn.svgporn.com/logos/css-3.svg" height="60px;" /></a> <!-- cssのロゴ -->
 <a><img src="https://cdn.svgporn.com/logos/javascript.svg" height="60px" /></a> <!-- JavaScriptのロゴ -->
-<a><img src="https://user-images.githubusercontent.com/39142850/71774768-d064a980-2fb7-11ea-88ad-4562c59470ae.png" height="65px;" /></a> <!-- jQueryのロゴ -->
+<a><img src="https://www.docker.com/sites/default/files/d8/styles/role_icon/public/2019-07/Docker-Logo-White-RGB_Horizontal.png?itok=cFIHFZiP" height="60px;" /></a> <!-- Dockerのロゴ -->
 <a><img src="https://user-images.githubusercontent.com/39142850/71774786-37825e00-2fb8-11ea-8b90-bd652a58f1ad.png" height="60px;" /></a> <!-- AWSのロゴ -->
 <a><img src="https://syncer.jp/storage/web/brand-logos/static/dst/github-logo-001.png" height="60px;" /></a> <!-- GitHubのロゴ -->
 ---
 
 <br>
+
+<img width="1440" alt="スクリーンショット 2020-10-16 10 40 31" src="https://i.gyazo.com/c84613d29dffd1cdaf941cc46288e7d0.png">
 
 ## 機能紹介
 - 新規会員登録・ログインをすると、用語の参照先URLを投稿できます。
@@ -97,21 +99,20 @@
 
 ## 使用技術
 
-1. AWS/本番環境（EC2, RDS, VPC, EIP, IAM）
-2. MySQL
-3. puma
-4. Javascript
-5. Ruby 2.6.5, Rails 6.0.3.3
-6. Mac Catalina(10.15.6)
-7. Amazon Linux
-8. VSCode, Vim
+1. AWS/本番環境（EC2, VPC, EIP, IAM, Route53）
+2. Docker,Docker-compose（開発環境）
+3. MySQL
+4. puma
+5. Javascript
+6. Ruby 2.6.5, Rails 6.0.3.3
+7. Mac Catalina(10.15.6)
+8. Amazon Linux
+9. VSCode, Vim
 
 ## 追加実装予定
 
-1. AWS/本番環境（Route53, S3）
-2. Docker,Docker-compose（開発環境）
-3. RSpec（テストフレームワーク）
-4. CircleCi（テスト・デプロイ）
+1. RSpec（テストフレームワーク）
+2. CircleCi（テスト・デプロイ）
 
 
 ---
