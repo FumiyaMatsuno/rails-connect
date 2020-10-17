@@ -20,7 +20,8 @@ jobs:
           ssh ${USER_NAME}@${HOST_NAME} '
             cd /var/www/rails &&
             git pull &&
-            ~/.rbenv/shims/bundle install --without test development &&
+            ~/.rbenv/shims/gem install bundler -v 2.1.4 &&
+            ~/.rbenv/shims/bundler _2.1.4_ install --without test development &&
             ~/.rbenv/shims/bundle exec rails assets:precompile RAILS_ENV=production &&
             bin/yarn &&
             bin/webpack &&
