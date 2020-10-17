@@ -24,7 +24,7 @@ jobs:
             ~/.rbenv/shims/bundler _2.1.4_ install --without test development &&
             ~/.rbenv/shims/bundle exec rails assets:precompile RAILS_ENV=production &&
             bin/yarn &&
-            bin/webpack &&
+            ~/.rbenv/shims/webpack &&
             ~/.rbenv/shims/rails db:migrate RAILS_ENV=production &&
             sudo systemctl restart puma.service
           '
