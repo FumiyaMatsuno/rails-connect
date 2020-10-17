@@ -30,12 +30,12 @@
 
 ## 機能紹介
 - 新規会員登録・ログインをすると、用語の参照先URLを投稿できます。
-- 新規会員登録、ログインがお済みでない方も用語一覧や詳細は閲覧できます。 
+- 新規会員登録、ログインがお済みでない方も用語一覧や詳細は閲覧できます。
 
 
 ## サイトURL紹介
 デプロイ:AWS
-- アドレス:http://54.95.37.191:3000/
+- アドレス:https://rails-connect.com/
 
 
 デプロイ:Heroku
@@ -99,20 +99,22 @@
 
 ## 使用技術
 
-1. AWS/本番環境（EC2, VPC, EIP, IAM, Route53）
+1. AWS/本番環境（EC2, ACM, VPC, EIP, IAM, Route53）
 2. Docker,Docker-compose（開発環境）
-3. MySQL
-4. puma
-5. Javascript
-6. Ruby 2.6.5, Rails 6.0.3.3
-7. Mac Catalina(10.15.6)
-8. Amazon Linux
-9. VSCode, Vim
+3. CircleCI（デプロイ）
+5. MySQL
+6. puma
+7. Javascript
+8. Ruby 2.6.5, Rails 6.0.3.3
+9. Mac Catalina(10.15.6)
+10. Amazon Linux
+11. VSCode, Vim
 
 ## 追加実装予定
 
-1. RSpec（テストフレームワーク）
-2. CircleCi（テスト・デプロイ）
+1. AWS/本番環境（S3）
+2. CircleCI（テスト）
+3. RSpec（テストフレームワーク）
 
 
 ---
