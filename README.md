@@ -28,7 +28,7 @@
 
 <br>
 
-<img width="1440" alt="スクリーンショット 2020-10-16 10 40 31" src="https://i.gyazo.com/1e45b3607d7fe4b3ec47d73a5e8f3382.png">
+<img width="1440" alt="スクリーンショット 2020-10-16 10 40 31" src="https://i.gyazo.com/8691aba83173c39626779080dabb3399.png">
 
 ## 機能紹介
 - 新規会員登録・ログインをすると、用語の参照先URLを投稿できます。
