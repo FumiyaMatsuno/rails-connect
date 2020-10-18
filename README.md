@@ -23,7 +23,7 @@
 <a><img src="https://syncer.jp/storage/web/brand-logos/static/dst/github-logo-001.png" height="60px;" /></a> <!-- GitHubのロゴ -->
 <a><img src="https://www.docker.com/sites/default/files/d8/styles/role_icon/public/2019-07/Docker-Logo-White-RGB_Horizontal.png?itok=cFIHFZiP" height="60px;" /></a> <!-- Dockerのロゴ -->
 <a><img src="https://user-images.githubusercontent.com/39142850/71774786-37825e00-2fb8-11ea-8b90-bd652a58f1ad.png" height="60px;" /></a> <!-- AWSのロゴ -->
-<a><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/t/tweeeety/20180209/20180209194628.png" height="60px;" /></a> <!-- CircleCIのロゴ -->
+<a><img src="https://assets.brandfolder.com/otz73u-2kwjjs-3sbkgf/v/799652/view@2x.png?v=1592401195" height="60px;" /></a> <!-- CircleCIのロゴ -->
 ---
 
 <br>
