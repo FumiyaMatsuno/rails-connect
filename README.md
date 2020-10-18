@@ -7,6 +7,7 @@
 - 「何を調べたら良いの？」、「このエラーを解決するには？」とお困りの初学者の方が、「参照すべきサイト」を最短距離で効率的に見つける事ができる<b>「情報共有検索サービス」</b>です。
 - こちらのサービスは、同様の経験をした有志の方々の投稿により、作りあげられている辞典になります。
 - 作成期間 2020/9/28 ~ 2020/10/7
+- https://rails-connect.com/
  ![top_page](https://i.gyazo.com/ec902bbeb37996a96d1e9c9b74bebef9.png)
 
 <br>
@@ -19,23 +20,24 @@
 <a><img src="https://cdn.svgporn.com/logos/html-5.svg" height="60px;" /></a> <!-- htmlのロゴ -->
 <a><img src="https://cdn.svgporn.com/logos/css-3.svg" height="60px;" /></a> <!-- cssのロゴ -->
 <a><img src="https://cdn.svgporn.com/logos/javascript.svg" height="60px" /></a> <!-- JavaScriptのロゴ -->
+<a><img src="https://syncer.jp/storage/web/brand-logos/static/dst/github-logo-001.png" height="60px;" /></a> <!-- GitHubのロゴ -->
 <a><img src="https://www.docker.com/sites/default/files/d8/styles/role_icon/public/2019-07/Docker-Logo-White-RGB_Horizontal.png?itok=cFIHFZiP" height="60px;" /></a> <!-- Dockerのロゴ -->
 <a><img src="https://user-images.githubusercontent.com/39142850/71774786-37825e00-2fb8-11ea-8b90-bd652a58f1ad.png" height="60px;" /></a> <!-- AWSのロゴ -->
-<a><img src="https://syncer.jp/storage/web/brand-logos/static/dst/github-logo-001.png" height="60px;" /></a> <!-- GitHubのロゴ -->
+<a><img src="https://assets.brandfolder.com/otz73u-2kwjjs-3sbkgf/v/799652/view@2x.png?v=1592401195" height="60px;" /></a> <!-- CircleCIのロゴ -->
 ---
 
 <br>
 
-<img width="1440" alt="スクリーンショット 2020-10-16 10 40 31" src="https://i.gyazo.com/c84613d29dffd1cdaf941cc46288e7d0.png">
+<img width="1440" alt="スクリーンショット 2020-10-16 10 40 31" src="https://i.gyazo.com/8691aba83173c39626779080dabb3399.png">
 
 ## 機能紹介
 - 新規会員登録・ログインをすると、用語の参照先URLを投稿できます。
-- 新規会員登録、ログインがお済みでない方も用語一覧や詳細は閲覧できます。 
+- 新規会員登録、ログインがお済みでない方も用語一覧や詳細は閲覧できます。
 
 
 ## サイトURL紹介
 デプロイ:AWS
-- アドレス:http://54.95.37.191:3000/
+- アドレス:https://rails-connect.com/
 
 
 デプロイ:Heroku
@@ -99,20 +101,22 @@
 
 ## 使用技術
 
-1. AWS/本番環境（EC2, VPC, EIP, IAM, Route53）
+1. AWS/本番環境（EC2, ACM, VPC, EIP, IAM, Route53）
 2. Docker,Docker-compose（開発環境）
-3. MySQL
-4. puma
-5. Javascript
-6. Ruby 2.6.5, Rails 6.0.3.3
-7. Mac Catalina(10.15.6)
-8. Amazon Linux
-9. VSCode, Vim
+3. CircleCI（デプロイ）
+5. MySQL
+6. puma
+7. Javascript
+8. Ruby 2.6.5, Rails 6.0.3.3
+9. Mac Catalina(10.15.6)
+10. Amazon Linux
+11. VSCode, Vim
 
 ## 追加実装予定
 
-1. RSpec（テストフレームワーク）
-2. CircleCi（テスト・デプロイ）
+1. AWS/本番環境（S3）
+2. CircleCI（テスト）
+3. RSpec（テストフレームワーク）
 
 
 ---
