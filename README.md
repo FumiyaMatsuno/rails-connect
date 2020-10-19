@@ -110,7 +110,7 @@
 8. Ruby 2.6.5, Rails 6.0.3.3
 9. Mac Catalina(10.15.6)
 10. Amazon Linux
-11. VSCode, Vim
+11. VSCode, Vim 
 
 ## 追加実装予定
 
