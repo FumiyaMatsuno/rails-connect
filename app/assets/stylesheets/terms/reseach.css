@@ -1,8 +1,8 @@
-.theme {
+.theme-research-list {
   font-size: 40px;
   color: white;
   background-color: #343a40;
-  margin:20px 100px;
+  margin: 20px;
   color: #6cb4e4;
   text-align: center;
   padding: 0.15em;
@@ -10,11 +10,14 @@
   border-bottom: solid 2px #6cb4e4;
   background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
   background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+  min-width: 500px;
+  overflow-x: scroll;
 }
 
 body {
   background-image: url('/images/3888153_m.png');
   height: 800px;
+  width: auto;
   background-size: cover;
 }
 
@@ -23,7 +26,7 @@ body {
 }
 
 .term-container {
-  margin: 100px;
+  margin: 100px 20px;
   background-color: white;
 }
 
@@ -35,8 +38,8 @@ body {
 .left-container {
   background-color: #343a40;
   list-style: none;
-  width: 250px;
-  font-size: 25px;
+  width: 200px;
+  font-size: 20px;
   text-align: left;
   padding: 20px 20px 0 20px;
   line-height: 60px;
@@ -46,14 +49,14 @@ body {
 .right-container {
   align-items: center;
   overflow: scroll;
-  width: calc(100% - 250px);
+  width: calc(100% - 25%);
   line-height: 50px;
 }
 
 .left-top {
  
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
   color: #494949;
   background: #f4f4f4;
   border-left: solid 5px #7db4e6;
