@@ -37,24 +37,6 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run:
-          name:
-          command: |
-# ①bundler2.0.1以降のものを使っているのであれば、環境変数と合わせて指定。
-            gem install bundler
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
-
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
-# ②、database.ymlとdatabase.yml.ciを入れ替える記述
-      - run: mv config/database.yml.ci config/database.yml
-
-      # Database setup
-      - run: bundle exec rails db:create
-      - run: bundle exec rails db:schema:load
 
 
   # deployジョブ: EC2にSSH接続して、git pull
