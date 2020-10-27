@@ -1,5 +1,3 @@
-Circleci.yml
-
 version: 2
 jobs:
   # buildジョブ: CircleCI上でDockerコンテナを作成してテスト
