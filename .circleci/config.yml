@@ -10,9 +10,9 @@ jobs:
       # ruby2.5.1を使ったアプリのため
       - image: circleci/ruby:2.6.6-node-browsers
         environment:
-#  ①注意！！ bundlerのバージョンが2.0.1以上だと、bundle installに失敗します。ここに環境として指定
+#  ①注意！！ bundlerのバージョンが2.0.1以上だと、bundle installに失敗します。ここに環境として指定します。
           - BUNDLER_VERSION: 2.1.4
-#  ②注意！！ circleCIは仮想環境を構築するので、そのときに使うデータベースを指定する
+#  ②注意！！ circleCIは仮想環境を構築するので、そのときに使うデータベースを指定する必要があります。
           - RAILS_ENV: 'test'
       # Mysqlのバージョン5.6で動かしていたため、5.6を指定
       - image: circleci/mysql:5.6
@@ -37,6 +37,24 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
+      - run:
+          name: install dependencies
+          command: |
+# ①bundler2.0.1以降のものを使っているのであれば、環境変数と合わせて指定する必要があります。
+            gem install bundler -v 2.1.4
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+# ②ちょっと無理やりですが、database.ymlとdatabase.yml.ciを入れ替える記述です。
+      - run: mv config/database.yml.ci config/database.yml
+
+      # Database setup
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:schema:load
 
 
   # deployジョブ: EC2にSSH接続して、git pull
@@ -46,34 +64,6 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints:
-            - -----BEGIN RSA PRIVATE KEY-----
-MIIEowIBAAKCAQEAg1GQwsKnzqHw0cy5wrC//ziCJ2A0qYxGFUyLBO7KIWvL8h0f
-DkCeRGrQG/0GQiBEO4GwaSFKKXDWA3PuD5D5YZg0l2X5GzuCSepsl3BG24wXpdN6
-1SNhe41blsgAA4LAhORuxBvGuntasuSHBfLv0IZrgl1f+tBpmXdzR5rSmYLFHdIg
-vV+YkJ2gNNSRsHR6dbOPHNXt+iAUzG7xmsreUvFiPf9eXX6i24vG1ys3lc1g3JKY
-zHdQGw9Xn+6cA617sX7kaBVKUhBgnneK/8psaK66Z2wBHA22RXf6TVWt2vFoTqXj
-M9437MwoL3DAJbRNbCUZiXQ6zqXG5dFtZp8JrQIDAQABAoIBAF9zJhmqi3ayVuzo
-Ng3Bk4zbch9U2nJyt2472MCZIOryA6fUawJdDa0FRodRfv8JnQ7z0VpZDCLbFXQl
-C+Dcq6e4jmGNiWe19Znsf0oEHjzuszGhaiMKOI0pzmzmqrviijUOJUT+O5DIoMBv
-Q4Wbc5zKV9LGNEGGw3r9TBm7+2AAi3cwnbzR6Ry3z/fabx/kdNWQ+5lbKwqR13G7
-wAGvtlBTlItA5ZBe6qU52vCbfhXV8JLJJf2iu/dVB/U6Wtxmh1FK5pp9JKaueDNf
-56swv2TPgGFfdPjKrihB9JvrPn1dpS+aZqxlNa3vmeQRaCAqGE49r06NJo7enaXF
-kgGPLwECgYEA9XUxD63BzG+M91yYPeObuUFykRUQ3D+KdnDaMWNmw1PMGriKkgcU
-ZX9Ybz/0ghUtPcUdXDldlade+kpcIKRamZIVBWmvcyW1ac4Kp38KZk0jR3mNdhoM
-HdpIz5l7bY3V+lxYi70vfFkQJ21vbyK5uctOzf2I83oqCnxfPqHTTp0CgYEAiPVp
-5uuiJpfZUwL1HY1pyWIjiTpme7JNuVaDIs/5P0LDUNtkEdQUfvzcj31MK1waZTXj
-NS+4D9MFFePHk9IFU3PRWuQm8mN6CEfhRmmYpnDDHjqXNJzYpoan7bqU6ZpoQ+SW
-9FQz+jjXSGKsMJuyzD9yrDbghkVt+b0oMYZislECgYAza25wq2S6z++G7jXSWTkJ
-EQXQEMqsaP83mqKK0Bj5+Db8rgYRWzxRmuDKxWoSSh9lHkLtS/Mn450I78Tm7acx
-HqIatS4VACRF2uzuc7WZArXORk91GzXIly7DlpJ9u8XEoc3G0EX/VaUFrW43qN2h
-Z07F5kPnRYNDGRTWyQ28HQKBgEPg5fDV/hKElehHgfZ4nOJ7akNcF2jdERp3Xx0E
-2HJbA3Ryl6EibFoXtrTDE9o1lrtsvsQgd2gYXN/heYuwvoUC1NLoWsktNlEeVu9P
-7KEpJ/s2bLRdvB6khFwVajJxHZXwmERV60DrpP8yMEcTE8WY+JuTwympBX2OG3qY
-MRhRAoGBAKT+MqilqvHR1tb18hCt48DzKT7pcr0w9vvHs6LBxZwXPtY4y/njwxiR
-LaLi+UelXALCDvX3LY2xH2yomcegs0RBJN0iGSVYOdn9SL1Pe7I86pvfoBQ+ZeXi
-18gXoR9BgBLy+RSlIoxxhJKHTYA14kyZg9p+8X0UekxKzi0VC91H
-              -----END RSA PRIVATE KEY-----
       - run: >-
           ssh ${USER_NAME}@${HOST_NAME} '
             cd /var/www/rails &&
